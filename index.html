@@ -4,16 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Company site</title>
-    <link rel="stylesheet" href="style.css"
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/media.css" />
+    <!-- дефер что бы грузился скрипт паралельно ДОМу -->
+    <script src="./js/script.js" defer></script>
   </head>
   <body>
     <header class="header">
-      <div class="container">
+      <div class="container header__container">
         <a class="logo">Company</a>
         <div class="header__right">
-          <button class="header__search" aria-label="Search"></button>
+          <button class="btn-reset header__search" aria-label="Search">
+            <svg
+              width="24.000000"
+              height="24.000000"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <desc>Created with Pixso.</desc>
+              <defs />
+              
+              <circle
+                cx="11.766602"
+                cy="11.766586"
+                r="8.988559"
+                stroke-opacity="1.000000"
+                stroke-width="1.500000"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18.01 18.48L21.54 22"
+                
+                stroke-opacity="1.000000"
+                stroke-width="1.500000"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
           <nav class="nav"></nav>
-          <ul class="nav__list">
+          <ul class="list-reset nav__list">
             <li class="nav__item">
               <a href="#" class="nav__link">Portfolio</a>
             </li>
@@ -36,35 +69,35 @@
     <main>
       <section class="hero">
         <div class="container">
-          <h1 class="hero__title">We&nbsp;produce the best products</h1>
-          <p class="hero_discr">
+          <h1 class="hero__title">We&nbsp;produce the&nbsp;best products</h1>
+          <p class="hero__descr">
             Mattis quam, lectus et&nbsp;justo amet, tortor, lectus dapibus est.
             Habitasse efficitur sodales vel est.
           </p>
-          <button class="btn btn--light">Button</button>
+          <button class="btn-reset btn btn--light">Button</button>
         </div>
       </section>
       <section class="about">
         <div class="container">
-          <div class="about__top">
+          <div class="about__top grid">
             <div class="about__col">
-              <ul class="about__list">
+              <ul class="list-reset about__list">
                 <li class="about__item">
-                  <div class="complited">
-                    <div class="complited__value">20,000</div>
-                    <div class="complited__descr">completed projects</div>
+                  <div class="completed">
+                    <div class="completed__value">20,000</div>
+                    <div class="completed__descr">completed projects</div>
                   </div>
                 </li>
                 <li class="about__item">
-                  <div class="complited">
-                    <div class="complited__value">10,000</div>
-                    <div class="complited__descr">prototypes</div>
+                  <div class="completed">
+                    <div class="completed__value">10,000</div>
+                    <div class="completed__descr">prototypes</div>
                   </div>
                 </li>
                 <li class="about__item">
-                  <div class="complited">
-                    <div class="complited__value">347</div>
-                    <div class="complited__descr">completed projects</div>
+                  <div class="completed">
+                    <div class="completed__value">347</div>
+                    <div class="completed__descr">completed projects</div>
                   </div>
                 </li>
               </ul>
@@ -75,13 +108,13 @@
                 et&nbsp;dictum. In&nbsp;sit odio. Tempus leo, dictum.
               </h2>
               <div class="about__text">
-                <p class="about__discr">
+                <p class="about__descr">
                   Amet, mattis dapibus malesuada arcu dapibus nec efficitur
                   et&nbsp;dictum. In&nbsp;sit odio. Tempus leo, dictum. Sit
                   mattis mattis lorem cursus velit sit sed et&nbsp;vitae quam,
                   sed nulla dapibus venenatis odio.
                 </p>
-                <p class="about__discr">
+                <p class="about__descr">
                   Venenatis sapien aenean adipiscing lacinia nec lacinia lacinia
                   et&nbsp;quam, ultricies. Dictum. Ipsum sodales sit id&nbsp;nec
                   sed sodales mattis mollis quis, pellentesque
@@ -89,10 +122,40 @@
                 </p>
               </div>
             </div>
-            <div class="about__video">
-              <video src=""></video>
-              <button class="about__play" aria-label="Play video"></button>
-            </div>
+          </div>
+          <div class="about__video">
+            <!-- мутед для заглушения видео, прелоад для подзагрузки метаданых зарания, плайс лине для айфона открытие в браузере -->
+            <video
+              src="./video.mp4"
+              poster="./img/video-poster.jpg"
+              muted
+              preload="metadata"
+              playsinline
+            ></video>
+            <button class="btn-reset about__play" aria-label="Play video">
+              <svg
+                width="100.000000"
+                height="100.000000"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <circle
+                  cx="50.000000"
+                  cy="50.000000"
+                  r="50.000000"
+                 
+                  fill-opacity="1.000000"
+                />
+                <path
+                  d="M63 50L44.25 37L44.25 62.99L63 50Z"
+                  fill="#1D1D1F"
+                  fill-opacity="1.000000"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
@@ -100,38 +163,38 @@
       <section class="portfolio">
         <h2 class="visually-hidden">Portfolio</h2>
         <div class="container">
-          <ul class="portfolio__list">
-            <li class="portfolio-item">
+          <ul class="list-reset portfolio__list">
+            <li class="portfolio-item grid">
               <div class="portfolio-item__col">
                 <h3 class="portfolio-item__title">Et&nbsp;odio</h3>
-                <p class="portfolio-item__disc">
+                <p class="portfolio-item__desc">
                   Mauris eget nec nulla dolor&nbsp;ex. Sodales luctus
                   pellentesque cras ornare lorem luctus lectus sed consectetur
                   quam, est. Libero, odi
                 </p>
-                <button class="btn btn--dark">Button</button>
+                <button class="btn-reset btn btn--dark">Button</button>
               </div>
               <div class="portfolio-item__col">
                 <img
-                  src="img/potr-1.jpg"
+                  src="img/port-1.jpg"
                   alt="Portfolio photo"
                   class="portfolio-item__image"
                 />
               </div>
             </li>
-            <li class="portfolio-item portfolio-item--reverse">
+            <li class="portfolio-item portfolio-item--reverse grid">
               <div class="portfolio-item__col">
                 <h3 class="portfolio-item__title">Integer dapibus dictum</h3>
-                <p class="portfolio-item__disc">
+                <p class="portfolio-item__desc">
                   it&nbsp;pulvinar tempus amet dolor dui vulputate tortor,
                   luctus lorem in&nbsp;nunc eleifend ipsum justo
                   et&nbsp;venenatis dictumst.
                 </p>
-                <button class="btn btn--dark">Button</button>
+                <button class="btn-reset btn btn--dark">Button</button>
               </div>
               <div class="portfolio-item__col">
                 <img
-                  src="img/potr-1.jpg"
+                  src="img/port-2.jpg"
                   alt="Portfolio photo"
                   class="portfolio-item__image"
                 />
@@ -144,7 +207,7 @@
       <section class="quote">
         <div class="container">
           <h2 class="quote__title">Quoute</h2>
-          <blockquote class="qiuote__content">
+          <blockquote class="quote__content">
             <p class="quote__text">
               Accumsan vulputate efficitur in&nbsp;amet, vestibulum ornare morbi
               accumsan leo, est. Consectetur ultricies. Sapien est. Dictumst.
@@ -153,7 +216,7 @@
               interdum lectus quam, dapibus nec augue vulputate leo, ornare
               elit.
             </p>
-            <cite class="quote__autor"
+            <cite class="quote__author"
               >Alex Lee / <span>Co-founder & SEO</span>
             </cite>
           </blockquote>
@@ -165,41 +228,29 @@
         <img
           src="img/services.jpg"
           alt=""
-          class="services__iamge"
+          class="services__image"
           aria-hidden="true"
         />
         <div class="container">
-          <ul class="services__list">
-            <li class="services-item">
+          <ul class="list-reset services__list">
+            <li class="services-item grid">
               <div class="services-item__col">
                 <h3 class="services-item__title">Branding</h3>
               </div>
               <div class="services-item__col">
-                <p class="service-item__descr">
+                <p class="services-item__descr">
                   Quam, tortor, interdum consectetur eleifend integer&nbsp;et.
                   Accumsan vulputate efficitur in&nbsp;amet, vestibulum ornare
                   morbi accumsan leo, est. Consectetur ultricies.
                 </p>
               </div>
             </li>
-            <li class="services-item">
-              <div class="services-item__col">
-                <h3 class="services-item__title">Branding</h3>
-              </div>
-              <div class="services-item__col">
-                <p class="service-item__descr">
-                  Quam, tortor, interdum consectetur eleifend integer&nbsp;et.
-                  Accumsan vulputate efficitur in&nbsp;amet, vestibulum ornare
-                  morbi accumsan leo, est. Consectetur ultricies.
-                </p>
-              </div>
-            </li>
-            <li class="services-item">
+            <li class="services-item grid">
               <div class="services-item__col">
                 <h3 class="services-item__title">Web-apps</h3>
               </div>
               <div class="services-item__col">
-                <p class="service-item__descr">
+                <p class="services-item__descr">
                   Malesuada efficitur mattis id&nbsp;mattis aenean interdum
                   lectus quam, dapibus nec augue vulputate leo, ornare elit.
                   Pulvinar sed quam, arcu pulvinar nisi ipsum quis, sodales
@@ -207,12 +258,12 @@
                 </p>
               </div>
             </li>
-            <li class="services-item">
+            <li class="services-item grid">
               <div class="services-item__col">
                 <h3 class="services-item__title">Design</h3>
               </div>
               <div class="services-item__col">
-                <p class="service-item__descr">
+                <p class="services-item__descr">
                   Cras amet, sed sapien orci, leo, sit ornare risus tortor, ex.
                   Mauris non orci, sed elit. Cursus ex. Aenean ipsum dolor augue
                   tempus et&nbsp;molestie ipsum adipiscing leo, sit interdum
@@ -220,12 +271,12 @@
                 </p>
               </div>
             </li>
-            <li class="services-item">
+            <li class="services-item grid">
               <div class="services-item__col">
                 <h3 class="services-item__title">Strategy</h3>
               </div>
               <div class="services-item__col">
-                <p class="service-item__descr">
+                <p class="services-item__descr">
                   Quam, tortor, interdum consectetur eleifend integer&nbsp;et.
                   Accumsan vulputate efficitur in&nbsp;amet, vestibulum ornare
                   morbi accumsan leo, est. Consectetur ultricies.
@@ -238,20 +289,45 @@
     </main>
 
     <footer class="footer">
-      <div class="container">
+      <div class="container grid">
         <div class="footer__col">
-          <a class="logo">Company</a>
+          <a class="logo footer__logo">Company</a>
           <address class="footer__address">
             Dorivit BV, Monitorweg&nbsp;1, Almere 1322BJ, Netherlands
           </address>
-          <ul class="footer__sociall social">
+          <ul class="list-reset footer__sociall social">
             <li class="social__item">
               <a
                 href="#"
                 class="social__link"
                 target="_blank"
                 aria-label="Facebook"
-              ></a>
+                ><svg
+                  width="40.000000"
+                  height="40.000000"
+                  viewBox="0 0 40 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                    id="Facebook"
+                    width="40.000000"
+                    height="40.000000"
+                    transform="translate(0.000000 -0.999512)"
+                    fill="#FFFFFF"
+                    fill-opacity="0"
+                  />
+                  <path
+                    id="Combined Shape"
+                    d="M20 -0.999512C8.9543 -0.999512 0 7.95459 0 19.0005C0 30.0464 8.9543 39.0005 20 39.0005C31.0457 39.0005 40 30.0464 40 19.0005C40 7.95459 31.0457 -0.999512 20 -0.999512ZM22.0846 19.8789L22.0846 30.7603L17.5826 30.7603L17.5826 19.8794L15.3333 19.8794L15.3333 16.1299L17.5826 16.1299L17.5826 13.8784C17.5826 10.8193 18.8526 9.00049 22.461 9.00049L25.4651 9.00049L25.4651 12.7505L23.5873 12.7505C22.1827 12.7505 22.0897 13.2744 22.0897 14.2524L22.0846 16.1294L25.4863 16.1294L25.0883 19.8789L22.0846 19.8789Z"
+                    clip-rule="evenodd"
+                    fill="#FFFFFF"
+                    fill-opacity="1.000000"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </a>
             </li>
             <li class="social__item">
               <a
@@ -259,7 +335,30 @@
                 class="social__link"
                 target="_blank"
                 aria-label="Telegram"
-              ></a>
+                ><svg
+                  width="40.000000"
+                  height="40.000000"
+                  viewBox="0 0 40 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                    width="40.000000"
+                    height="40.000000"
+                    transform="translate(0.000000 -0.999512)"
+                    fill="#FFFFFF"
+                    fill-opacity="0"
+                  />
+                  <path
+                    d="M20 39.0005C31.0457 39.0005 40 30.0464 40 19.0005C40 7.95459 31.0457 -0.999512 20 -0.999512C8.95431 -0.999512 0 7.95459 0 19.0005C0 30.0464 8.95431 39.0005 20 39.0005ZM16.6736 23.0688L16.6733 23.0688L16.6737 23.0684L16.6737 23.0684L16.6738 23.0684L25.9474 14.6997C26.3544 14.3384 25.8586 14.1621 25.3182 14.4897L13.8727 21.7109L8.9289 20.1675C7.86125 19.8408 7.85358 19.1069 9.1686 18.5796L28.4336 11.1514C29.3135 10.752 30.1627 11.3623 29.8268 12.7095L26.546 28.1699C26.3169 29.2686 25.6531 29.5312 24.7333 29.0234L19.7356 25.3311L17.3333 27.667C17.0543 27.9385 16.8333 28.167 16.3333 28.167L16.6736 23.0688Z"
+                    clip-rule="evenodd"
+                    fill="#FFFFFF"
+                    fill-opacity="1.000000"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </a>
             </li>
             <li class="social__item">
               <a
@@ -267,7 +366,30 @@
                 class="social__link"
                 target="_blank"
                 aria-label="Google plus"
-              ></a>
+                ><svg
+                  width="40.000000"
+                  height="40.000000"
+                  viewBox="0 0 40 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                    width="40.000000"
+                    height="40.000000"
+                    transform="translate(0.000000 -0.999512)"
+                    fill="#FFFFFF"
+                    fill-opacity="0"
+                  />
+                  <path
+                    d="M0 19.0005C0 7.95459 8.9543 -0.999512 20 -0.999512C31.0457 -0.999512 40 7.95459 40 19.0005C40 30.0464 31.0457 39.0005 20 39.0005C8.9543 39.0005 0 30.0464 0 19.0005ZM16.34 18.4292L16.34 20.6006L19.9439 20.6006C19.7987 21.5322 18.8546 23.333 16.34 23.333C14.1704 23.333 12.4003 21.5415 12.4003 19.334C12.4003 17.126 14.1704 15.335 16.34 15.335C17.5746 15.335 18.4007 15.8594 18.8727 16.312L20.5975 14.6562C19.49 13.625 18.0557 13.0005 16.34 13.0005C12.8269 13.0005 9.98557 15.8325 9.98557 19.334C9.98557 22.8354 12.8269 25.667 16.34 25.667C20.0074 25.667 22.4403 23.0977 22.4403 19.4785C22.4403 19.0625 22.3949 18.7456 22.3404 18.4292L16.34 18.4292ZM28.1411 18.4292L29.9567 18.4292L29.9567 20.2388L28.1411 20.2388L28.1411 22.0483L26.3256 22.0483L26.3256 20.2388L24.51 20.2388L24.51 18.4292L26.3256 18.4292L26.3256 16.6196L28.1411 16.6196L28.1411 18.4292Z"
+                    clip-rule="evenodd"
+                    fill="#FFFFFF"
+                    fill-opacity="1.000000"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
@@ -283,7 +405,20 @@
               class="footer__input"
               placeholder="E-mail"
             />
-            <button class="footer__btn" aria-label="Send E-mail"></button>
+            <button
+              class="btn-reset footer__btn"
+              aria-label="Send E-mail"
+            ><svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <clipPath id="clip2_236">
+                <rect width="24.000000" height="24.000000" fill="white" fill-opacity="0"/>
+              </clipPath>
+            </defs>
+            <rect width="24.000000" height="24.000000" fill="#FFFFFF" fill-opacity="0"/>
+            <g clip-path="url(#clip2_236)">
+              <path d="M8 5L15 12L8 19" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
+            </g>
+          </svg>
+          </button>
           </form>
         </div>
       </div>

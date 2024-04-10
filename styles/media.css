@@ -1,0 +1,89 @@
+/* настройка под маленькое расзрешение */
+@media (max-width: 767.99px) {
+  .header__container {
+    flex-direction: column;
+  }
+
+  .hero__title {
+    font-size: 70px;
+    line-height: 84px;
+  }
+
+  /* настройка скрола в право для списка портфолио, при маленьком разрешении */
+  .header__right {
+    /* небольшой отступ спарво */
+    margin-top: 30px;
+
+    width: 100%;
+    /* скрод по иксу */
+    overflow-x: auto;
+    /* скрол по игрику скрываем */
+    overflow-y: hidden;
+
+    /* что бы позунок скрола не заезжал на буквы чучуть отдаляем
+     */
+    padding-bottom: 10px;
+  }
+
+  .grid {
+    /* меняем стобцы делаем друг под другом */
+    grid-template-columns: auto;
+    /* и строчный отступ 40px */
+    row-gap: 40px;
+  }
+}
+:root {
+  /* меняем переменную что бы отсупы были поменьше */
+  --offset: 60px;
+}
+/* уменьшаем некоторые отступы */
+.portfolio-item:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+/* отключаем реверс столбцов где это было */
+.portfolio-item--reverse .portfolio-item__col:first-child {
+  order: 1;
+}
+.portfolio-item--reverse .portfolio-item__col:last-child {
+  order: 2;
+}
+
+.footer {
+  padding-bottom: 90px;
+}
+
+/* уменьшаем шрифты что бы на минимале 320 норм */
+@media (max-width: 575.99px) {
+  .hero__title {
+    font-size: 40px;
+    line-height: 54px;
+    /* уменьшаем секции на минимальных экранах */
+    margin-bottom: 30px;
+  }
+
+  /* уменьшаем секции на минимальных экранах */
+  .hero {
+    padding-top: 200px;
+    height: auto;
+    min-height: auto;
+  }
+
+  /* уменьшаем секции на минимальных экранах */
+  .about__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  /* уменьшаем секции на минимальных экранах */
+  .about__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 44px;
+  }
+
+  /* уменьшаем секции на минимальных экранах */
+  .quote__text {
+    font-size: 26px;
+    line-height: 40px;
+  }
+}
