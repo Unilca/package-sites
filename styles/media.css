@@ -31,6 +31,14 @@
     /* и строчный отступ 40px */
     row-gap: 40px;
   }
+
+  /* отключаем реверс столбцов где это было */
+  .portfolio-item--reverse .portfolio-item__col:first-child {
+    order: 1;
+  }
+  .portfolio-item--reverse .portfolio-item__col:last-child {
+    order: 2;
+  }
 }
 :root {
   /* меняем переменную что бы отсупы были поменьше */
@@ -39,14 +47,6 @@
 /* уменьшаем некоторые отступы */
 .portfolio-item:not(:last-child) {
   margin-bottom: 60px;
-}
-
-/* отключаем реверс столбцов где это было */
-.portfolio-item--reverse .portfolio-item__col:first-child {
-  order: 1;
-}
-.portfolio-item--reverse .portfolio-item__col:last-child {
-  order: 2;
 }
 
 .footer {
