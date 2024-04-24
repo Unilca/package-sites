@@ -1,5 +1,5 @@
 <script setup>
-import AppCard from './AppCard.vue'
+import Card from './Card.vue'
 
 const onClickAdd = () => {
   alert('dsdsdsdsdsd')
@@ -8,7 +8,7 @@ const onClickAdd = () => {
 
 <template>
   <div class="grid grid-cols-4 gap-5">
-    <AppCard
+    <Card
       title="dsfgdfggfsggsdfgsdfg"
       imageUrl="/cakes/cakes-1.jpg"
       :price="123123"
