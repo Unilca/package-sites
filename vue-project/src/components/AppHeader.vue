@@ -12,7 +12,7 @@
     <ul class="flex items-center gap-10">
       <li class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black">
         <img src="/cart.svg" />
-        <b> 120 $</b>
+        <b> $120</b>
       </li>
 
       <li class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black">

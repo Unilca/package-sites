@@ -12,13 +12,13 @@ import DrawerHeader from './DrawerHeader.vue'
       <div class="flex gap-2">
         <span>Total:</span>
         <div class="flex-1 border-b border-dashed"></div>
-        <b>12900 P</b>
+        <b>$1290</b>
       </div>
 
       <div class="flex gap-2">
         <span>Tax:5%</span>
         <div class="flex-1 border-b border-dashed"></div>
-        <b>600 P</b>
+        <b>$600</b>
       </div>
       <button
         disabled=""

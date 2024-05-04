@@ -17,14 +17,14 @@ defineProps({
     <img
       :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
       alt="Like 2"
-      class="absolute top-10 left-10"
+      class="absolute top-10 left-10 opacity-90 hover:opacity-100"
     />
     <img :src="imageUrl" alt="Cake" class="rounded-xl border border-slate-100" />
     <p class="mt-2">{{ title }}</p>
     <div class="flex justify-between mt-5">
       <div class="flex flex-col">
         <span class="text-slate-400">Cost:</span>
-        <b>{{ price }}</b>
+        <b>${{ price }}</b>
       </div>
       <img @click="onClickAdd" :src="isAdded ? '/checked.svg' : '/plus.svg'" alt="Plus" />
     </div>
