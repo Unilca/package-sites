@@ -5,9 +5,11 @@ defineProps({
   items: Array
 })
 
-const onClickAdd = () => {
-  alert('dsdsdsdsdsd')
-}
+//через emit обьявляем какие функции можно вытащить из списка событий
+//
+const emit = defineEmits(['addToFavorite', 'addToCart'])
+
+const onClickAdd = () => {}
 </script>
 
 <template>
@@ -15,11 +17,14 @@ const onClickAdd = () => {
     <Card
       v-for="item in items"
       :key="item.id"
+      :id="item.id"
       :title="item.title"
       :imageUrl="item.imageUrl"
       :price="item.price"
-      :isFavorite="false"
-      :onClickAdd="onClickAdd"
+      :onClickAdd="() => emit('addToCart', item)"
+      :onClickFavorite="() => emit('addToFavorite', item)"
+      :isFavorite="item.isFavorite"
+      :isAdded="item.isAdded"
     />
   </div>
 </template>

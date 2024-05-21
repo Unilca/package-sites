@@ -1,29 +1,44 @@
+<script setup>
+// emit функция которая вызывает наши событтия
+const emit = defineEmits(['openDrawer'])
+</script>
+
 <template>
   <header class="flex justify-between border-b border-slate-300 px-10 py-8">
-    <div class="flex items-center gap-4">
-      <img src="/logo.png" alt="Logo" class="w-10" />
-      <div>
-        <h2 class="text-xl font-bold uppercase">Cake shop</h2>
+    <router-link to="/">
+      <div class="flex items-center gap-4">
+        <img src="/logo.png" alt="Logo" class="w-10" />
+        <div>
+          <h2 class="text-xl font-bold uppercase">Cake shop</h2>
 
-        <p class="text-slate-500">The most delicious cakes</p>
-      </div>
-    </div>
+          <p class="text-slate-500">The most delicious cakes</p>
+        </div>
+      </div></router-link
+    >
 
     <ul class="flex items-center gap-10">
-      <li class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black">
+      <!-- добавляем @click с emits -->
+      <li
+        @click="() => emit('openDrawer')"
+        class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black"
+      >
         <img src="/cart.svg" />
-        <b> $120</b>
+        <b>Cart</b>
       </li>
 
-      <li class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black">
-        <img src="/heart.svg" />
-        <span> Favorites</span>
-      </li>
+      <router-link to="/favorites">
+        <li class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black">
+          <img src="/heart.svg" />
+          <span> Favorites</span>
+        </li></router-link
+      >
 
-      <li class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black">
-        <img src="/profile.svg" />
-        <span> Profile</span>
-      </li>
+      <router-link to="/profile">
+        <li class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black">
+          <img src="/profile.svg" />
+          <span> Profile</span>
+        </li>
+      </router-link>
     </ul>
   </header>
 </template>

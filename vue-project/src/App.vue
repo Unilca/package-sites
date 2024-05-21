@@ -1,37 +1,47 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref, watch, provide } from 'vue'
 import axios from 'axios'
 
 import AppHeader from './components/AppHeader.vue'
-import AppCardList from './components/AppCardList.vue'
-import AppFilter from './components/AppFilter.vue'
 import AppDrawer from './components/AppDrawer.vue'
 
-const items = ref([])
+import Home from './pages/Home.vue'
 
-onMounted(async () => {
-  try {
-    const { data } = await axios.get('https://c377d7930830f31e.mokky.dev/items')
+//массив с корзиной
+const cart = ref([])
+const drawerIsOpen = ref(false)
 
-    items.value = data
-  } catch (error) {
-    console.log('error load')
-    console.log(error)
-  }
-})
+const closeDrawer = () => {
+  drawerIsOpen.value = false
+}
+const openDrawer = () => {
+  drawerIsOpen.value = true
+}
+
+const addToCart = (item) => {
+  cart.value.push(item)
+  item.isAdded = true
+}
+
+const removeFromCart = (item) => {
+  cart.value.splice(cart.value.indexOf(item), 1)
+  item.isAdded = false
+}
+
+//все функции обьявляем глобально (все функции корзины)
+provide(
+  /* key global */ 'cart',
+  /* value */ { cart, closeDrawer, openDrawer, addToCart, removeFromCart }
+)
 </script>
 
 <template>
-  <div class="bg-white w-4/5 m-auto h-screen rounded-xl shadow-xl mt-14">
-    <AppHeader />
-
+  <div class="bg-white w-4/5 m-auto h-auto rounded-xl shadow-xl mt-14 mb-14">
+    <AppHeader @open-drawer="openDrawer" />
+    <AppDrawer v-if="drawerIsOpen" />
     <div class="p-10">
-      <div class="flex justify-between items-center">
-        <h2 class="text-3xl font-bold mb-8">All cakes</h2>
-        <AppFilter />
-      </div>
-
-      <div class="mt-10"><AppCardList :items="items" /></div>
+      <!-- будут все страницы -->
+      <router-view></router-view>
     </div>
   </div>
 </template>

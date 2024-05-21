@@ -1,12 +1,14 @@
 <script setup>
-defineProps({
+import { inject } from 'vue'
+
+const props = defineProps({
   title: String,
   imageUrl: String,
   price: Number,
   isFavorite: Boolean,
   isAdded: Boolean,
-  onClickAdd: Function,
-  onClickFavorite: Function
+  onClickFavorite: Function,
+  onClickAdd: Function
 })
 </script>
 
@@ -15,6 +17,7 @@ defineProps({
     class="relative bg-white border border-slate-100 rounded-3xl p-8 cursor-pointer transition hover:-translate-y-2 hover:shadow-xl"
   >
     <img
+      @click="onClickFavorite"
       :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
       alt="Like 2"
       class="absolute top-10 left-10 opacity-90 hover:opacity-100"
