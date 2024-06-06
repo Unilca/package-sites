@@ -2,6 +2,7 @@
 import { inject } from 'vue'
 
 const props = defineProps({
+  id: Number,
   title: String,
   imageUrl: String,
   price: Number,
@@ -10,6 +11,8 @@ const props = defineProps({
   onClickFavorite: Function,
   onClickAdd: Function
 })
+
+const visibleButton = Boolean(props.onClickAdd)
 </script>
 
 <template>
@@ -17,6 +20,7 @@ const props = defineProps({
     class="relative bg-white border border-slate-100 rounded-3xl p-8 cursor-pointer transition hover:-translate-y-2 hover:shadow-xl"
   >
     <img
+      v-if="visibleButton"
       @click="onClickFavorite"
       :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
       alt="Like 2"
@@ -29,7 +33,12 @@ const props = defineProps({
         <span class="text-slate-400">Cost:</span>
         <b>${{ price }}</b>
       </div>
-      <img @click="onClickAdd" :src="isAdded ? '/checked.svg' : '/plus.svg'" alt="Plus" />
+      <img
+        v-if="visibleButton"
+        @click="onClickAdd"
+        :src="isAdded ? '/checked.svg' : '/plus.svg'"
+        alt="Plus"
+      />
     </div>
   </div>
 </template>

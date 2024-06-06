@@ -1,5 +1,5 @@
 <script setup>
-// emit функция которая вызывает наши событтия
+// emit функция которая вызывает наши событтия-функции
 const emit = defineEmits(['openDrawer'])
 </script>
 

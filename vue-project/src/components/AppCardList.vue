@@ -1,15 +1,15 @@
 <script setup>
+import { compile } from 'vue'
 import Card from './Card.vue'
 
 defineProps({
-  items: Array
+  items: Array,
+  isFavorites: Boolean
 })
 
 //через emit обьявляем какие функции можно вытащить из списка событий
 //
 const emit = defineEmits(['addToFavorite', 'addToCart'])
-
-const onClickAdd = () => {}
 </script>
 
 <template>
@@ -21,8 +21,8 @@ const onClickAdd = () => {}
       :title="item.title"
       :imageUrl="item.imageUrl"
       :price="item.price"
-      :onClickAdd="() => emit('addToCart', item)"
-      :onClickFavorite="() => emit('addToFavorite', item)"
+      :onClickAdd="isFavorites ? null : () => emit('addToCart', item)"
+      :onClickFavorite="isFavorites ? null : () => emit('addToFavorite', item)"
       :isFavorite="item.isFavorite"
       :isAdded="item.isAdded"
     />

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, provide } from 'vue'
+import { ref, watch, provide, computed } from 'vue'
 import axios from 'axios'
 
 import AppHeader from './components/AppHeader.vue'
@@ -9,8 +9,9 @@ import Home from './pages/Home.vue'
 
 //массив с корзиной
 const cart = ref([])
-const drawerIsOpen = ref(false)
 
+//открытие вкладки с корзиной
+const drawerIsOpen = ref(false)
 const closeDrawer = () => {
   drawerIsOpen.value = false
 }
@@ -18,11 +19,16 @@ const openDrawer = () => {
   drawerIsOpen.value = true
 }
 
+//суммирование цены в корзине
+const totalPrice = computed(() => cart.value.reduce((acc, item) => acc + item.price, 0))
+
+//добавление в корзину
 const addToCart = (item) => {
   cart.value.push(item)
   item.isAdded = true
 }
 
+//удаление товаров из корзину
 const removeFromCart = (item) => {
   cart.value.splice(cart.value.indexOf(item), 1)
   item.isAdded = false
@@ -37,10 +43,11 @@ provide(
 
 <template>
   <div class="bg-white w-4/5 m-auto h-auto rounded-xl shadow-xl mt-14 mb-14">
+    <!--страницы -->
     <AppHeader @open-drawer="openDrawer" />
-    <AppDrawer v-if="drawerIsOpen" />
+    <AppDrawer :total-price="totalPrice" v-if="drawerIsOpen" />
+
     <div class="p-10">
-      <!-- будут все страницы -->
       <router-view></router-view>
     </div>
   </div>

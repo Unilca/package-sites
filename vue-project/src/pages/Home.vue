@@ -41,7 +41,7 @@ const addToFavorite = async (item) => {
     try {
       //если лайк не стоит, то отправляем по api (post), так же создаем отдельный favorite id
       if (!item.isFavorite) {
-        const obj = { parentId: item.id }
+        const obj = { item_id: item.id, item }
         item.isFavorite = true
         const { data } = await axios.post(`https://c377d7930830f31e.mokky.dev/favorites`, obj)
         item.favoriteId = data.id
@@ -66,7 +66,7 @@ const fetchFavorites = async () => {
 
     //если в favorites есть какойто из items то у него ставим isFavorite:true
     items.value = items.value.map((item) => {
-      const favorite = favorites.find((favorite) => favorite.parentId === item.id)
+      const favorite = favorites.find((favorite) => favorite.item_id === item.id)
       //если нету простой возврат
       if (!favorite) {
         return item
